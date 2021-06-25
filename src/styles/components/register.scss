@@ -1,0 +1,99 @@
+.container-register {
+    width: 471px;
+    height: 100%;
+    margin: 20px auto 0px auto;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 1px 7px 22px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 1px 7px 22px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 7px 22px rgba(0, 0, 0, 0.25);
+
+    .card-body{
+        .form-title {
+            display: block;
+            margin: 0px 0px 20px 0px;
+    
+            .register-developer, .register-recluter {
+                width: 50%;
+                height: 49.09px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                background-color: #ffffff;
+                -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+                h3 {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    
+        .form-register {
+            input.input, select{
+                width: 100%;
+                height: 44px;
+                padding: 0px 0px 0px 15px;
+                margin-bottom: 20px;
+                background-color: #FFFFFF;
+                border: 1px solid #000000;
+                box-sizing: border-box;
+                border-radius: 10px;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+            .form-check {
+                label {
+                    font-size: 12px;
+                    margin-left: 10px;
+                }
+            }
+            .btn-submit {
+                width: 100%;
+                height: 44px;
+                border: none;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 16px;
+                color: #FFFFFF;
+                background-color: #4F55C9;
+                border-radius: 26px;
+                margin: 20px 0px 0px 0px;
+            }
+        }
+
+        .others-links {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 20px 0px 0px 0px;
+
+            span{
+                cursor: pointer;
+            }
+        }
+    }
+}
+.show-recluter {
+    height: 640px !important;
+}
+
+.show {
+    display: none;
+}
+.hidden {
+    display: none;
+}
+
+.active{
+    background-color: #b5b6ff !important;
+}

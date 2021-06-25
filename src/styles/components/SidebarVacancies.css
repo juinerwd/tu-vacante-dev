@@ -1,0 +1,51 @@
+.sidebar__vacancies {
+    margin-top: 20px;
+    height: 558px;
+    padding: 10px 15px 0px 15px;
+    background-color: #F2F3FF;
+}
+
+.sidebar__vacancies p.h5{
+    color: #6e6e6e;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 15px;
+}
+
+.sidebar__vacancies--date-publication select,
+.sidebar__vacancies--country select,
+.sidebar__vacancies--language select {
+    border: 1px solid #c2c1c1;
+    box-sizing: border-box;
+    height: 40px;
+    font-size: 14px;
+}
+
+.sidebar__vacancies--date-publication select:active,
+.sidebar__vacancies--date-publication select:focus,
+.sidebar__vacancies--country select:active,
+.sidebar__vacancies--country select:focus,
+.sidebar__vacancies--language select:active,
+.sidebar__vacancies--language select:focus,
+.sidebar__vacancies--language select:active,
+.sidebar__vacancies--language select:focus {
+    box-shadow: none;
+}
+
+.sidebar__vacancies--date-publication,
+.sidebar__vacancies--categories,
+.sidebar__vacancies--country {
+    margin-bottom: 20px;
+}
+
+.sidebar__vacancies--categories .form-check-input{
+    margin-right: 10px;
+}
+
+.sidebar__vacancies--categories .form-check-input:active,
+.sidebar__vacancies--categories .form-check-input:focus {
+    outline: none;
+    box-shadow: none;
+}

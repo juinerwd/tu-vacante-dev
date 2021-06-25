@@ -1,0 +1,267 @@
+@import '../settings/vars';
+
+.banner{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background-color: $primaryColor;
+
+    .banner__content {
+        width: 100%;
+        padding: 0px 100px;
+
+        .banner__text {
+            width: 50%;
+            display: flex;
+            align-content: center;
+            position: absolute;
+            z-index: 999;
+            div {
+                h1{
+                    font-style: normal;
+                    font-weight: 900;
+                    font-size: 48px;
+                    line-height: 62px;
+                    color: #FFFFFF;
+                    width: 100%;
+    
+                    .name-web{
+                        color: #2AA7EE;
+                    }
+                }
+                .banner__form {
+                    width: 100%;
+                    margin-top: 30px;
+                    form {
+                        display: flex;
+                        input, .input-group input{
+                            width: 246px;
+                            height: 42px;
+                            border: none;
+                            padding-left: 15px;
+                            background-color: #FFFFFF;
+                        }
+                        input {
+                            border-radius: 24px;
+                            &:focus, &:active{
+                                outline: none;
+                                box-shadow: none;
+                            }
+                        }
+                        .input-group {
+                            margin-left: 5px;
+                            width: 246px;
+                            input {
+                                border-right: $secondaryColor;
+                                border-radius: 24px;
+                                &:focus, &:active{
+                                    outline: none;
+                                    box-shadow: none;
+                                }
+                            }
+                            button {
+                                position: absolute;
+                                border: $secondaryColor;
+                                background-color: rgb(255, 255, 255);
+                                z-index: 999;
+                                right: 0;
+                                width: 42px;
+                                height: 42px;
+                                border-radius: 50%;
+                                &:focus, &:active{
+                                    outline: none;
+                                    box-shadow: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .banner__ilustration {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+    
+            img{
+                width: 500px;
+                height: 480px;
+            }
+        }
+    }
+
+}
+@media screen and (max-width: 500px){
+    .banner{
+        overflow: hidden;
+        .banner__content {
+            padding: 0px 20px;
+            
+            .banner__text {
+                top: 50px;
+                width: 90%;
+                height: 72%;
+                position: absolute;
+                div {
+                    h1{
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 32px;
+                        line-height: 50px;
+                        color: #FFFFFF;
+                        width: 100%;
+        
+                        .name-web{
+                            color: #2AA7EE;
+                        }
+                    }
+                    .banner__form {
+                        width: 100%;
+                        margin-top: 30px;
+                        form {
+                            display: flex;
+                            input, .input-group input{
+                                width: 200px;
+                                height: 42px;
+                                border: none;
+                                padding-left: 15px;
+                                background-color: #FFFFFF;
+                            }
+                            input {
+                                border-radius: 24px;
+                                &:focus, &:active{
+                                    outline: none;
+                                    box-shadow: none;
+                                }
+                            }
+                            .input-group {
+                                margin-left: 5px;
+                                width: 100%;
+                                input {
+                                    border-right: $secondaryColor;
+                                    border-radius: 24px;
+                                    &:focus, &:active{
+                                        outline: none;
+                                        box-shadow: none;
+                                    }
+                                }
+                                button {
+                                    position: absolute;
+                                    border: $secondaryColor;
+                                    background-color: rgb(255, 255, 255);
+                                    z-index: 999;
+                                    right: 0;
+                                    width: 42px;
+                                    height: 42px;
+                                    border-radius: 50%;
+                                    &:focus, &:active{
+                                        outline: none;
+                                        box-shadow: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .banner__ilustration {
+                top: 100px;
+                right: -100px;
+                position: relative;
+                img{
+                    width: 400px;
+                    height: 380px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 663px){
+    .banner{
+        overflow: hidden;
+        .banner__content {
+            padding: 0px 20px;
+            
+            .banner__text {
+                top: 50px;
+                width: 90%;
+                height: 72%;
+                position: absolute;
+                div {
+                    h1{
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 32px;
+                        line-height: 50px;
+                        color: #FFFFFF;
+                        width: 90%;
+        
+                        .name-web{
+                            color: #2AA7EE;
+                        }
+                    }
+                    .banner__form {
+                        width: 100%;
+                        margin-top: 30px;
+                        form {
+                            display: flex;
+                            input, .input-group input{
+                                width: 50%;
+                                height: 42px;
+                                border: none;
+                                padding-left: 15px;
+                                background-color: #FFFFFF;
+                            }
+                            input {
+                                border-radius: 24px;
+                                &:focus, &:active{
+                                    outline: none;
+                                    box-shadow: none;
+                                }
+                            }
+                            .input-group {
+                                margin-left: 5px;
+                                width: 100%;
+                                input {
+                                    border-right: $secondaryColor;
+                                    border-radius: 24px;
+                                    &:focus, &:active{
+                                        outline: none;
+                                        box-shadow: none;
+                                    }
+                                }
+                                button {
+                                    position: absolute;
+                                    border: $secondaryColor;
+                                    background-color: rgb(255, 255, 255);
+                                    z-index: 999;
+                                    right: 0;
+                                    width: 42px;
+                                    height: 42px;
+                                    border-radius: 50%;
+                                    &:focus, &:active{
+                                        outline: none;
+                                        box-shadow: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .banner__ilustration {
+                top: 100px;
+                right: -100px;
+                position: relative;
+                img{
+                    width: 400px;
+                    height: 380px;
+                }
+            }
+        }
+    }
+}

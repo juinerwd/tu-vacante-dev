@@ -1,0 +1,43 @@
+footer {
+    
+    .footer__social {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 58px;
+        padding: 0px 60px;
+        background-color: #F3F3F3;
+        p {
+            margin-bottom: 0;
+            color: #4F55C9;
+            font-style: normal;
+            font-weight: 900;
+            font-size: 36px;
+        }
+        .footer__social--media {
+            display: flex;
+            span {
+                &.icon {
+                    color: #4F55C9;
+                    margin-right: 30px;
+                }
+                &.youtube {
+                    width: 20px;
+                    height: 18px;
+                }
+                &.facebook {
+                    width: 11.21px;
+                    height: 18px;
+                }
+                &.twitter{
+                    width: 18px;
+                    height: 18px;
+                }
+                &.linkedin{
+                    width: 15.78px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+}

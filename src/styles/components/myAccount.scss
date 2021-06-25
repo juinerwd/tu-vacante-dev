@@ -1,0 +1,33 @@
+
+.myAccount {
+    .myAccount__form {
+        .myAccount__file {
+            padding: 15px 0px;
+            width: 350px;
+            height: 275px;
+            border: 1px dashed #000;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+
+            input {
+                display: none;
+            }
+
+            .myAccount_profilephoto {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                }
+            }
+
+            .label_file {
+                cursor: pointer;
+                color: #4F55C9;
+            }
+        }
+    }
+}

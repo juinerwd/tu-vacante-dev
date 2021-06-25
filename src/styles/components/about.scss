@@ -1,0 +1,14 @@
+@import '../settings/vars';
+
+.about__about--me {
+    margin: 20px 0px;
+    background-color: $colorCard;
+    border-radius: 10px;
+    padding: 15px;
+}
+.about__language, .about__briefcase {
+    background-color: $colorCard;
+    margin: 20px 0px;
+    border-radius: 10px;
+    padding: 15px;
+}

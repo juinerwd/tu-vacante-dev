@@ -1,0 +1,57 @@
+@import '../settings/vars';
+
+
+.card__new--vacancy{
+    margin-bottom: 20px;
+    padding: 15px;
+    p {
+        margin-bottom: 0;
+    }
+    .row1 {
+        display: flex;
+        justify-content: space-between;
+
+        .new {
+            color: #2E4EF4;
+            font-size: 12px;
+        }
+        .hour{
+            color: #000000;
+            font-size: 10px;
+        }
+    }
+    .row2 {
+        font-size: 22px;
+    }
+    .row3{
+        margin: 10px 0;
+        p {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+
+        }
+    }
+    .row4 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p.location {
+            font-size: 12px;
+            span {
+                font-weight: 600;
+            }
+        }
+        .see__vacancy {
+            color: $secondaryColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+            width: 110px;
+            border-radius: 69px;
+            background-color: $primaryColor;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+@import '../settings/vars';
+
+.user__form--update {
+    .user__form {
+        .row {
+
+            .form-group {
+                margin-bottom: 40px;
+                input {
+                    height: 50px;
+                    box-shadow: none;
+                }
+            }
+
+            &.user__btn-update {
+                display: flex;
+                justify-content: center;
+                button {
+                    width: 250px;
+                    height: 40px;
+                    border-radius: 24px;
+                    border: none;
+                    color: $secondaryColor;
+                    background-color: $primaryColor;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+
+.studies {
+    .studies__form {
+        .form-group {
+            .form-control {
+                height: 40px;
+                margin-bottom: 20px;
+                &:focus, &:active {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}

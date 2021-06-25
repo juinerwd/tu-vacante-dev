@@ -1,0 +1,40 @@
+@import '../../styles/settings/vars';
+
+.container {
+    padding-top: 50px;
+    .title_page {
+        color: #273b47;
+        font-weight: 700;
+        font-size: 32px;
+    }
+    .sidebar__account {
+        width: 100%;
+
+        .sidebar__account--menu {
+            padding: 0;
+
+            li {
+                list-style: none;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 21px;
+
+                button {
+                    padding: 20px 0px 20px 50px;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    font-size: 16px;
+                    font-weight: 400;
+                    align-items: center;
+                    border: none;
+                    color: #3c3c3c;
+
+                    &.item_active {
+                        background-color: #E9E7E7;
+                    }
+                }
+            }
+        }
+    }
+}
