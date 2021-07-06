@@ -26,15 +26,15 @@ const ChangePassword = () => {
         const password3 = document.getElementById('repeatPassword').value;
 
         if (password1 === password2) {
-            Swal.fire('Contraseña', "La contraseña actual no puede ser igual a la nueva contraseña", 'info');
+            Swal.fire('', "La contraseña actual no puede ser igual a la nueva contraseña", 'info');
             return false;
         }
         if (password1.length < 8 && password2.length < 8 && password3.length < 8) {
-            Swal.fire('Contraseña', "La contraseña debe tener 8 o más caracteres", 'info');
+            Swal.fire('', "Las contraseñas deben tener 8 o más caracteres", 'info');
             return false;
         }
         if (password2 !== password3) {
-            Swal.fire('Contraseña', "El campo nueva contraseña y repetir contraseña deben de ser iguales", 'info');
+            Swal.fire('', "El campo nueva contraseña y repetir contraseña deben de ser iguales", 'info');
             return false;
         }
 

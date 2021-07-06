@@ -26,12 +26,16 @@ const CreateVacancy = ({history}) => {
         location: '',
         typeCurrency: '',
         technologies: [],
+        type_contract: '',
+        type_workingday: '',
         startDate: '',
         finishDate: '',
         user: uid
     });
 
-    const { title, description, v_company, experience, salary, location, typeCurrency, startDate, finishDate } = formCreateVacancy;
+    const { title, description, v_company, experience, salary, location, typeCurrency, type_contract, type_workingday, startDate, finishDate } = formCreateVacancy;
+
+    // console.log(type_contract, type_workingday);
 
     // Añadiendo las technologias
     const handleTecnology = () => {
@@ -141,7 +145,7 @@ const CreateVacancy = ({history}) => {
                             </div>
                             <div className="col-12 create__vacancy--tecnologies">
                                 <div className="input-group">
-                                    <input type="text" className="form-control" id="tecnology" placeholder="Agregar tecnologias requeridas" required />
+                                    <input type="text" className="form-control" id="tecnology" placeholder="Agregar tecnologias requeridas" />
                                     <button className="btn btn-outline-secondary" type="button" onClick={handleTecnology} >Agregar</button>
                                 </div>
                                 <ul className="show-tech">
@@ -155,7 +159,7 @@ const CreateVacancy = ({history}) => {
                                 </ul>
                             </div>
                             <div className="col-6 md-6">
-                                <select className="form-control" name="typeCurrency" value={typeCurrency} onChange={handleVacancyInputChange} required>
+                                <select className="form-control" name="type_contract" value={type_contract} onChange={handleVacancyInputChange} required>
                                     <option value="null">Tipo de contrato</option>
                                     {
                                         contracts.map(item => (
@@ -165,7 +169,7 @@ const CreateVacancy = ({history}) => {
                                 </select>
                             </div>
                             <div className="col-6 md-6">
-                                <select className="form-control" name="typeCurrency" value={typeCurrency} onChange={handleVacancyInputChange} required>
+                                <select className="form-control" name="type_workingday" value={type_workingday} onChange={handleVacancyInputChange} required>
                                     <option value="null">Tipo de jornada laboral</option>
                                     {
                                         workingdays.map(item => (

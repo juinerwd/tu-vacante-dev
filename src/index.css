@@ -20,3 +20,27 @@ input {
     box-shadow: none;
 }
 
+.content-spinner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.content-spinner .spinner-grow {
+    width: 4rem;
+    height: 4rem;
+}
+.content-spinner p {
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.offers {
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: 12rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}

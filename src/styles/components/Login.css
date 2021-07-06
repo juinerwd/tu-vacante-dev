@@ -1,7 +1,7 @@
 .container-login {
     width: 471px !important;
     height: 438px;
-    margin: 70px auto 0px auto;
+    margin: 10px auto 50px auto;
     padding: 15px 15px;
     background-color: #FFFFFF;
     -webkit-box-shadow: 1px 7px 22px rgba(0, 0, 0, 0.25);
@@ -10,7 +10,7 @@
 }
 
 .container-login .form-title {
-    margin: 0px 0px 60px 0px;
+    margin-bottom: 60px;
 }
 
 .form-login input.input-email, .form-login input.input-pass{
@@ -23,14 +23,6 @@
     box-sizing: border-box;
     border-radius: 10px;
 }
-
-/* .form-login .form-check input[type="checkbox"]{
-    width: 15px;
-    height: 15px;
-    /* background-color: #FFFFFF; 
-    border: 1px solid #000000;
-    /* box-sizing: border-box; 
-} */
 
 .form-login .form-check .label {
     margin-left: 10px;

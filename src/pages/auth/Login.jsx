@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { startLogin } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
 
+import Input from '../../components/Input';
 import '../../styles/components/Login.css';
 
 const Login = ({changeFormAuth, setChangeFormAuth}) => {
@@ -20,7 +21,10 @@ const Login = ({changeFormAuth, setChangeFormAuth}) => {
     const {lEmail, lPassword} = formLoginValues;
 
     const handlechangeFormAuth = () => {
-        setChangeFormAuth(false);
+        setChangeFormAuth(2);
+    }
+    const handlechangeRecoverPassword = () => {
+        setChangeFormAuth(3);
     }
 
     const handleSubmitForm = (e) => {
@@ -29,7 +33,7 @@ const Login = ({changeFormAuth, setChangeFormAuth}) => {
         dispatch(startLogin(lEmail, lPassword));
     }
     return (
-        <main className={changeFormAuth ? "container" : "container d-none"}>
+        <main className={changeFormAuth === 1 ? "container" : "d-none"}>
             <div className="row">
                 <div className="col-12">
                     <div className="card container-login" styles="width: 18rem;">
@@ -38,21 +42,27 @@ const Login = ({changeFormAuth, setChangeFormAuth}) => {
                                 <h3>Iniciar sesión</h3>
                             </div>
                             <form className="form-login" onSubmit={handleSubmitForm}>
-                                <input 
+                                <Input 
+                                    col=""
+                                    label=""
                                     type="text"
-                                    className="input-email"
-                                    placeholder="Correo eléctronico"
+                                    classname="input-email"
                                     name="lEmail"
+                                    id="languages"
                                     value={lEmail}
                                     onChange={handleLoginInputChange}
+                                    placeholder="Correo eléctronico"
                                 />
-                                <input 
+                                <Input 
+                                    col=""
+                                    label=""
                                     type="password"
-                                    className="input-pass"
-                                    placeholder="Contraseña"
+                                    classname="input-pass"
                                     name="lPassword"
+                                    id="lPassword"
                                     value={lPassword}
                                     onChange={handleLoginInputChange}
+                                    placeholder="Contraseña"
                                 />
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="1" id="flexCheckChecked" />
@@ -64,7 +74,7 @@ const Login = ({changeFormAuth, setChangeFormAuth}) => {
                                 {/* onClick={handleLogin} */}
                             </form>
                             <div className="others-links">
-                                <span>Olvidé mi contraseña</span>
+                                <span onClick={handlechangeRecoverPassword}>Olvidé mi contraseña</span>
                                 <span onClick={handlechangeFormAuth}>Crear una cuenta</span>
                             </div>
                         </div>

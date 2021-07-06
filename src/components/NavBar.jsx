@@ -32,7 +32,7 @@ function NavBar() {
                 </Nav>
                 <Nav className={`navbar-nav ml-auto ${!!uid ? '' : 'hidden'}`}>
                     <Link className="nav-link" to="/vacancies">Vacantes</Link>
-                    <Link className="nav-link" to="/create-vacancy">Publicar vacante</Link>
+                    <Link className={role === "RECRUITER_ROLE" ? "nav-link" : 'd-none' } to="/create-vacancy">Publicar vacante</Link>
                     <Dropdown>
                         <Dropdown.Toggle className="btn__toggle--drodown" variant="success" id="dropdown-basic">
                             <img src={profilePhoto} alt="Foto" />

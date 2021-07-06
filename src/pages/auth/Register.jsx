@@ -34,7 +34,7 @@ const Register = ({changeFormAuth, setChangeFormAuth}) => {
     }
 
     const handlechangeFormAuth = () => {
-        setChangeFormAuth(true);
+        setChangeFormAuth(1);
     }
 
     const handleSubmitFormRegister = (e) => {
@@ -74,7 +74,7 @@ const Register = ({changeFormAuth, setChangeFormAuth}) => {
     }
 
     return (
-        <main className={changeFormAuth ? "container d-none" : "container"}>
+        <main className={changeFormAuth === 2 ? "container" : "d-none"}>
             <div className="row">
                 <div className="col-12">
                     <div className="card container-register">
@@ -176,7 +176,7 @@ const Register = ({changeFormAuth, setChangeFormAuth}) => {
                                         Acepto los Términos y condiciones de servicio y la política de privacidad de TUVACANTEDEV
                                     </label>
                                 </div>
-                                <button className="btn-submit" type="submit">Ingresar</button>
+                                <button className="btn-submit" type="submit">Crear cuenta</button>
                             </form>
                             <div className="others-links">
                                 <span onClick={handlechangeFormAuth}>Iniciar sesión</span>

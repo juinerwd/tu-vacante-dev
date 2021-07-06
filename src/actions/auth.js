@@ -1,6 +1,7 @@
 import { fetchNoToken, fetchWithToken } from '../helpers/fetch';
 import { types } from '../types/types';
 import Swal from 'sweetalert2';
+import { Redirect } from 'react-router-dom';
 
 import { finishLoading, startLoading } from './ui';
 
@@ -26,11 +27,13 @@ export const startLogin = (email, password) => {
                 phone_number: body.phone_number,
                 country: body.country,
                 profilePhoto: body.profile_photo,
-                role: body.role
-            }))
+                role: body.role,
+                verified_account: body.verified_account
+            }));
             dispatch( finishLoading() );
+            <Redirect to="/" />
         }else {
-            Swal.fire('Error', 'No se pudo iniciar sesión, por favor revisa tu email y contraseña', 'error');
+            Swal.fire('', 'No se pudo iniciar sesión, por favor revisa tu email y contraseña', 'error');
             dispatch( finishLoading() );
         }
     }
@@ -53,10 +56,12 @@ export const startRegister = (name, lastname, email, company, country, password,
                 phone_number: body.phone_number,
                 country: body.country,
                 profilePhoto: body.profile_photo,
-                role: body.role
-            }))
+                role: body.role,
+                verified_account: body.verified_account
+            }));
+            <Redirect to="/" />
         }else {
-            Swal.fire('Error', body.message, 'error');
+            Swal.fire('Error', body.msg, 'error');
         }
     }
 }
@@ -79,7 +84,8 @@ export const startCheking = () => {
                 phone_number: body.phone_number,
                 country: body.country,
                 profilePhoto: body.profile_photo,
-                role: body.role
+                role: body.role,
+                verified_account: body.verified_account
             }))
         }else {
             dispatch(checkingFinished());

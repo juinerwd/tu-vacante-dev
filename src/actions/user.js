@@ -1,31 +1,7 @@
-import { fetchWithToken } from '../helpers/fetch';
+import { fetchWithToken, fetchNoToken, fetchWithTokenRecoverAccount } from '../helpers/fetch';
 import { types } from '../types/types';
 import Swal from 'sweetalert2';
 import { fileUpload } from '../helpers/fileUpload';
-
-export const startGetProfileUser = ( ) => {
-    return async (dispatch, getState) => {
-        const { uid } = getState().auth;
-        try {
-            const resp = await fetchWithToken(`profile/${uid}`);
-            const body = await resp.json();
-
-            // console.log(body.profile);
-            
-            if (body.ok) {
-                dispatch( getProfileUser(body.profile) );
-            }
-        } catch (error) {
-            console.log(error);
-            // Swal.fire('Error', error, 'error');
-        }
-    }
-}
-
-const getProfileUser = (profile) => ({
-    type: types.profileUserGet,
-    payload: profile
-});
 
 export const startUpdatePersonalInfo = ( name, lastname, phone_number, country ) => {
     return async (dispatch, getState) => {
@@ -46,22 +22,19 @@ export const startUpdatePersonalInfo = ( name, lastname, phone_number, country )
 export const startUpdateAboutMe = ( about_me, years_experience, portafolio_url ) => {
     return async (dispatch, getState) => {
 
-        const user = getState().auth.uid;
         const profileid = getState().profile.active;
 
         if (about_me === '') {
-            about_me = profileid.about_me;
+            about_me = profileid === null ? '' : profileid.about_me;
         }
         if (years_experience === '') {
-            years_experience = profileid.years_experience;
+            years_experience = profileid === null ? '' : profileid.years_experience;
         }
         if (portafolio_url === '') {
-            portafolio_url = profileid.portafolio_url;
+            portafolio_url = profileid === null ? '' : profileid.portafolio_url;
         }
 
-        let getIdProfile = JSON.stringify(profileid) === '{}' ? user : profileid.profile_id;
-
-        const resp = await fetchWithToken(`profile/${getIdProfile}`, {user, about_me, years_experience, portafolio_url}, 'PUT');
+        const resp = await fetchWithToken(`profile`, {about_me, years_experience, portafolio_url}, 'PUT');
         const body = await resp.json();
 
         if (body.ok) {
@@ -74,32 +47,30 @@ export const startUpdateAboutMe = ( about_me, years_experience, portafolio_url )
 export const startUpdateStudies = ( studies, skills, featured_projects, certifications, tools_technologies, languages,  ) => {
     return async (dispatch, getState) => {
 
-        const user = getState().auth.uid;
+        // const user = getState().auth.uid;
         const profileid = getState().profile.active;
 
+
         if (studies === '') {
-            studies = profileid.studies;
+            studies = profileid === null ? '' : profileid.studies;
         }
         if (skills === '') {
-            skills = profileid.skills;
+            skills = profileid === null ? '' : profileid.skills;
         }
         if (featured_projects === '') {
-            featured_projects = profileid.featured_projects;
+            featured_projects = profileid === null ? '' : profileid.featured_projects;
         }
         if (certifications === '') {
-            certifications = profileid.certifications;
+            certifications = profileid === null ? '' : profileid.certifications;
         }
         if (tools_technologies === '') {
-            tools_technologies = profileid.tools_technologies;
+            tools_technologies = profileid === null ? '' : profileid.tools_technologies;
         }
         if (languages === '') {
-            languages = profileid.languages;
+            languages = profileid === null ? '' : profileid.languages;
         }
-        
 
-        let getIdProfile = JSON.stringify(profileid) === '{}' ? user : profileid.profile_id;
-
-        const resp = await fetchWithToken(`profile/${getIdProfile}`, {user, studies, skills, featured_projects, certifications, tools_technologies, languages }, 'PUT');
+        const resp = await fetchWithToken(`profile`, { studies, skills, featured_projects, certifications, tools_technologies, languages }, 'PUT');
         const body = await resp.json();
 
         if (body.ok) {
@@ -170,3 +141,53 @@ export const startUploading = (file) => {
         }
     }
 }
+
+export const startSendEmailForgotPassword = (email) => {
+    return async (dispatch, getState) => {
+        const resp = await fetchNoToken(`send-email`, {email}, 'POST');
+        const body = await resp.json();
+
+        if (body.ok) {
+            localStorage.setItem('token-forgot-pass', body.token);
+            localStorage.setItem('token-init-date-fp', new Date().getTime());
+
+            Swal.fire('Info', body.msg, 'info');
+        }else {
+            Swal.fire('Error', body.msg, 'error');
+        }
+    }
+}
+
+export const startRecoverAccount = (password, action) => {
+    return async (dispatch, getState) => {
+        const resp = await fetchWithTokenRecoverAccount('send-email/recover-account', {password, action}, 'POST');
+        const body = await resp.json();
+
+        if (body.ok) {
+            Swal.fire('', body.msg, 'info');
+        } else {
+            Swal.fire('Error', body.msg, 'error');
+        }
+    }
+}
+
+export const startGetProfileUser = ( ) => {
+    return async (dispatch, getState) => {
+        const { uid } = getState().auth;
+        try {
+            const resp = await fetchWithToken(`profile/${uid}`);
+            const body = await resp.json();
+            
+            if (body.ok) {
+                dispatch( getProfileUser(body.profile) );
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+const getProfileUser = (profile) => ({
+    type: types.profileUserGet,
+    payload: profile
+});

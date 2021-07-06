@@ -13,12 +13,14 @@ import Home from '../pages/Home';
 import Vacancies from '../pages/Vacancies';
 import Vacancy from '../pages/Vacancy';
 import NavBar from '../components/NavBar';
+import VerifiedAccount from '../components/VerifiedAccount';
 import ProfileDev from '../pages/dev/ProfileDev';
 import ProfileRecruiter from '../pages/recruiter/ProfileRecruiter';
 import { startCheking } from '../actions/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import LoginScreen from '../pages/auth/LoginScreen';
+import RecoverAccount from '../pages/auth/RecoverAccount';
 import Footer from '../components/Footer';
 import AccountDev from '../pages/dev/AccountDev';
 import AccountRecruiter from '../pages/recruiter/AccountRecruiter';
@@ -30,6 +32,7 @@ import Myvacancies from '../pages/recruiter/pages/Myvacancies';
 import { vacanciesStartLoading } from '../actions/vacancy';
 import Vacancycandidate from '../pages/recruiter/pages/Vacancycandidate';
 import { startGetTypesContracts, startGetWorkingDays } from '../actions/job';
+import NotFound from '../pages/NotFound';
 
 
 const AppRouter = () => {
@@ -41,7 +44,6 @@ const AppRouter = () => {
     if(!!name){
         clearName = name.replace(/\s+/g, '');
     }
-     
 
     useEffect(() => {
         
@@ -80,20 +82,32 @@ const AppRouter = () => {
     }
 
     if (checking) {
-        return (<h1>Por favor espere...</h1>);
+        return (
+            <div className="content-spinner">
+                <div>
+                    <div className="spinner-grow text-primary" role="status">
+                        <span className="visually-hidden"></span>
+                    </div>
+                    <p>Cargando...</p>
+                </div>
+            </div>
+        );
     }
 
     return (
         <Router>
+            <VerifiedAccount />
             <NavBar />
             <div>
                 <Switch>
                     <PublicRoute exact path="/login" component={LoginScreen} isAuthenticated={ !!uid } />
                     <PublicRoute exact path="/vacancies" component={Vacancies} isAuthenticated={ !!uid } />
                     <PublicRoute exact path="/vacancy/:id" component={Vacancy} isAuthenticated={ !!uid } />
+                    <PublicRoute exact path="/not-found" component={NotFound} isAuthenticated={ !!uid } />
+                    <PublicRoute exact path="/recover-account/:token" component={RecoverAccount} isAuthenticated={ !!uid } />
                     <PublicRoute exact path="/" component={Home} isAuthenticated={ !!uid } />
 
-                    <PrivateRoute exact path="/home" component={ Home } isAuthenticated={ !!uid } />
+                    {/* <PrivateRoute exact path="/home" component={ Home } isAuthenticated={ !!uid } /> */}
                     <PrivateRoute exact path="/create-vacancy" component={ CreateVacancy } isAuthenticated={ !!uid } />
 
                     <PrivateRoute exact path={`/profile-dev/${clearName}`} component={ ProfileDev } isAuthenticated={ !!uid } />
@@ -104,7 +118,7 @@ const AppRouter = () => {
                     <PrivateRoute exact path="/my-vacancies" component={Myvacancies} isAuthenticated={ !!uid } />
                     <PrivateRoute exact path="/vacancy-candidates/:id" component={Vacancycandidate} isAuthenticated={ !!uid } />
 
-                    <Redirect to="/" /> 
+                    <Redirect to="/not-found" /> 
                 </Switch>
             </div>
             <Footer />

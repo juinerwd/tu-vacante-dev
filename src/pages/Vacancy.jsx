@@ -12,7 +12,7 @@ function Vacancy({history}) {
     const {id} = useParams();
     const dispatch = useDispatch();
 
-    const { uid } = useSelector(state => state.auth);
+    const { uid, verified_account } = useSelector(state => state.auth);
     const {active} = useSelector(state => state.vacancy);
     const {title, salary, company, description, technologies = [], createdAt} = active; //experience
 
@@ -23,21 +23,24 @@ function Vacancy({history}) {
 
     const handleVacancy = () => {
         if (!!uid) {
-            Swal.fire({
-                title: 'Aplicando a vatcante',
-                text: "Al aplicar a esta vacante, enviaremos tus datos de contacto (como tu numero de feléfono y tu correo electronico) y tu HV",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, aplicar'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  dispatch(startApplyVacancy());
-                }else {
-                    console.log('Probando si se ejecuta');
-                }
-            })
+            if (verified_account) {
+                Swal.fire({
+                    title: 'Aplicando a vatcante',
+                    text: "Al aplicar a esta vacante, enviaremos tus datos de contacto (como tu numero de feléfono y tu correo electronico) y tu HV",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, aplicar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      dispatch(startApplyVacancy());
+                    }
+                })
+            }else {
+                Swal.fire('','Para aplicar a una vacante desbe activar tu cuenta', 'warning');
+            }
+            
         }else {
             Swal.fire({
                 text: "Debes iniciar sesión para aplicar a la vacante",

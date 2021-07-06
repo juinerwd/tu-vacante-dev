@@ -17,7 +17,7 @@ function Home() {
             <div className="container">
                 <h3>Nuevas ofertas</h3>
                 <hr style={styles} />
-                <div className="row">
+                <div className="offers">
                     {
                         vacancies.map(vacancy => (
                             <NewVacancy key={vacancy.vid} vacancy={vacancy} />

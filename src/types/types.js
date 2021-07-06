@@ -16,8 +16,7 @@ export const types = {
     uiStartLoading: '[UI] Start loading',
     uiFinishLoading: '[UI] Finish loading',
 
-    profileUserGet: '[Profile] Get profile user',
-
+    
     vacanciesAddNew: '[Vacancies] New vacancies',
     vacanciesActive: '[Vacancies] Set active vacancies',
     vacanciesLoaded: '[Vacancies] Loaded vacancies',
@@ -26,15 +25,17 @@ export const types = {
     vacanciesGet: '[Vacancies] Get vacancies',
     vacanciesFileUrl: '[Vacancies] Update image url',
     candidateVacancy: '[Candidate] Get candidate vacancy',
-
+    
     countriesLoaded: '[Countries] Load countries',
     countryActive: '[Countries] Load country',
-
+    
     currenciesLoaded: '[Currencies] Load currencies',
-
+    
     applyVacanciesAddNew: '[Apply] apply vacancies',
-
+    
     typesContractsLoaded: '[Contracts] types of contracts',
-
+    
     workingDaysLoaded: '[WorkingDay] working day',
+    
+    profileUserGet: '[Profile] Get profile user',
 }
